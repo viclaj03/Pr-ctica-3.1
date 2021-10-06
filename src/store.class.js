@@ -117,7 +117,7 @@ class Store{
     toString(){
        let texto = "Almacén" + this.id + " => "+ this.products.length  +" productos: "+ this.totalImport  + "€"
 
-       this.products.join(a)
+       return texto + "\n" +this.products.join("\n")
 
 
     }
