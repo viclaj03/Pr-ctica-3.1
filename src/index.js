@@ -104,15 +104,15 @@ try {
 
 console.log('LISTADO DEL ALMACÉN por existencias')
 
-let ordenadoPorUnidades1 = almacen.orderByUnits()
-ordenadoPorUnidades1.forEach(producto => {
+let ordenadoPorUnidades = almacen.orderByUnits()
+ordenadoPorUnidades.forEach(producto => {
 console.log('- ' + producto)
 });
 
 console.log('LISTADO DE PRODUCTOS CON POCAS EXISTENCIAS')
 
-let productosPocasExistencias1 = almacen.underStock(10)
-productosPocasExistencias1.forEach(producto => {
+let productosPocasExistencias = almacen.underStock(10)
+productosPocasExistencias.forEach(producto => {
     console.log('- ' + producto)
 });
 
