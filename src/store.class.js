@@ -74,11 +74,21 @@ class Store{
             producto.price = item.price 
         }
         if (item.units){
-            if( data.units !== undefined && !Number.isInteger(data.units) ){
+            if( item.units !== undefined && !Number.isInteger(item.units) ){
                 throw "Unidades debe ser integuer"
             }
-            producto.changeUnits(item.units)
-        }        
+            if( item.units <0 ){
+                throw "Unidades debe ser positivo"
+            }
+            producto.units = item.units
+        }   
+        
+        if (item.name){
+            if( item.units !== undefined && !Number.isInteger(item.units) ){
+                throw "error"
+            }
+            producto.name = item.name
+        }
         return producto
     }
 
@@ -115,9 +125,9 @@ class Store{
     }
 
     toString(){
-       let texto = "Almacén" + this.id + " => "+ this.products.length  +" productos: "+ this.totalImport  + "€"
+       let texto = "Almacén" + this.id + " => "+ this.products.length  +" productos: "+ this.totalImport()  + "€"
 
-       return texto + "\n" +this.products.join("\n")
+       return texto + "\n-" + this.products.join("\n-")
 
 
     }
